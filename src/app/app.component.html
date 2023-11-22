@@ -1,0 +1,29 @@
+<div class="directives">
+  <h3>Directives</h3>
+<button (click)="displayTable()">Display/Hide Table</button><br>
+<button (click)="changeStyle()">Change Style</button>
+<div class="showTable" *ngIf="showTable "  [ngClass]="{'styleTable': applyStyle}" >
+<div class="input">
+<input type="text" placeholder="Enter the Name" [(ngModel)]="name"><br>
+<input type="number" placeholder="Enter the Age" [(ngModel)]="age"><br>
+<input type="text" placeholder="Enter the Department" [(ngModel)]="department"><br>
+<input type="text" placeholder="Enter the Country" [(ngModel)]="country"><br>
+<button (click)="save()">Save</button>
+  </div>
+  <!-- Use ngStyle to dynamically set the border color -->
+  <table class="table" [ngClass]="{'green-border': applyStyle, 'blue-border': !applyStyle}">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>Country</th>
+  </tr>
+  <tr *ngFor="let details of studentDetails" >
+      <td>{{details.name}}</td>
+      <td>{{details.age}}</td>
+      <td>{{details.department}}</td>
+      <td>{{details.country}}</td>
+  </tr>
+  </table>
+</div>
+</div>
